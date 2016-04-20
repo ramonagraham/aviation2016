@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Match Quiz</title>
+		<link  rel="stylesheet" href="css/matchStyleSmaller.css">
+	</head>
+	<body>
+		<div class="quiz_area">
+				<div id="leftBox" class="left">
+					<div class="title">
+					<h1 id="questionNum"></h1>
+					</div>
+					
+					<div class="image_border">
+					
+						<img id="image" onClick="" draggable="false"  alt="image">
+						<audio id="audioPlay" autoplay></audio>
+						
+					</div>
+					
+					<br>
+					
+					<div id="box_input" ondragover="return false;" ondrop="checkShapeDrop(event);" draggable="false"></div>
+
+				
+				</div>
+				
+				<div class="right">
+					<div id="timer">
+					</div>
+
+					<div id="choices">
+  						<h2 id="answer1" draggable="true"></h2>
+  						<h2 id="answer2" draggable="true"></h2>
+  						<h2 id="answer3" draggable="true"></h2>
+  						<h2 id="answer4" draggable="true"></h2>
+  						<h2 id="answer5" draggable="true"></h2>
+  					</div>
+				</div>
+			</div>
+		<script src="http://code.jquery.com/jquery.js"></script>
+		<script src="script/sectionone.js"></script>
+		<script src="script/quizScript.js"></script>
+
+	</body>
+</html>

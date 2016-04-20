@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Test Tutorial</title>
+		<style>
+			body {
+				text-align: center;
+				background-color: #2ecc71;
+				 background: url("images/8bitsky.png") no-repeat center center fixed;
+			}
+
+			img {
+				width: 50%;
+				height: 50%;
+			}
+
+			#wrapper {
+				padding: 2% 2% 2% 2%;
+				margin-left: 20%;
+				max-width: 60%;
+				background-color: #ecf0f1;
+			}
+
+			#box_input {
+				border: 5px solid #aaaaaa;
+				margin-right: 25%;
+				margin-left: 25%;
+			}
+
+			.choice {
+				border: 3px solid black;
+				margin-right: 35%;
+				margin-left: 35%;
+			}
+
+			button {
+				font-size: 2em;
+				margin-bottom: 5%;
+				padding: 30px;
+			}
+
+			.correct{
+				background-color: green;
+				border: solid;
+			}
+
+			.incorrect{
+				background-color: red;
+				border: solid;
+			}
+
+			.side
+			{	
+				float: left;
+			}
+
+			#menu{
+        		height: 100px;
+        		width: 100px;
+        		position: absolute;
+      		}
+		</style>
+	</head>
+
+	<body onload="onStart()">
+		<div id="left" class="side">
+      		<a href="main.php" class="buttons"><img id='menu' src="images/menu.png" alt="menu"></a>
+    	</div>
+
+		<div id = 'wrapper'>
+			<h1>Test Tutorial</h1>
+
+			<hr>
+			<br>
+
+			<h2>Questions</h2>
+			<p>You will see an image and hear a word. If you do not hear anything, please check your volume! <br>
+				You must match the term from the right side with the term you heard. Click the image to play the sound!
+			</p>
+
+			<br>
+
+			<img id='tutorial1' src="images/testTutorialCapture.png">
+
+			<br>
+			<br>
+			<hr>
+
+			<h2>Answering Questions</h2>
+			<p>To answer a question, click the term then click "Submit".</p>
+
+			<img id='tutorial2' src="images/testTutorialCapture2.png">
+
+			<br>
+			<br>
+
+			<hr>
+
+			<h2>Summary</h2>
+			<p>Once you have finished the test, you will be brought back to the main page. Good luck!</p>
+
+			<br>
+
+			<a href="quiz.php"><button>Take the test!</button></a>
+		</div>
+	</body>
+</html>

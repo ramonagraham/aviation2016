@@ -1,0 +1,201 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Memory Quiz</title>
+		<style>
+			#rapper {
+				margin-right: 15%;
+				margin-left: 15%;
+				background-color: #86adf2;
+				background-position: center;
+				padding: 0% 0% 40% 5%;
+			}
+
+			.row {
+				margin-left: 15%;
+				margin-right: 15%;
+			}
+
+			div.slot {
+				float:left;
+				margin: 10px;
+				display: block;
+				padding:10px;
+				/*Make sure this color matches background, the exact same! */
+				border:1px dashed #aaaaaa;
+				overflow: hidden;
+			}
+
+			p {
+				text-align: center;
+				font-size: 1.25em;
+			}
+		</style>
+	</head>
+
+	<body onload="">
+		<a href="index.html"><img src="images/menu.png" alt="menu"></a>
+		<div id="rapper">
+			<div class = 'row'>
+				<br>
+
+				<div id="div1" class="slot">
+					<img src="images/memoryGameCard.png" width="100" height="100" id='card1'>
+				</div>
+
+				<div id="div2" class="slot">
+					<img src="images/memoryGameCard.png" width="100" height="100" id='card2'>
+				</div>
+
+				<div id="div3" class="slot">
+					<img src="images/memoryGameCard.png" width="100" height="100" id='card3'>
+				</div>
+			</div>
+
+			<br>
+
+			<div class = 'row'>
+				<div id="div4" class="slot">
+					<img src="images/memoryGameCard.png" width="100" height="100" id='card4'>
+				</div>
+
+				<div id="div5" class="slot">
+					<img src="images/memoryGameCard.png" width="100" height="100" id='card5'>
+				</div>
+
+				<div id="div6" class="slot">
+					<img src="images/memoryGameCard.png" width="100" height="100" id='card6'>
+				</div>
+			</div>
+
+			<br>
+
+			<div class = 'row'>
+				<div id="div7" class="slot">
+					<img src="images/memoryGameCard.png" width="100" height="100" id='card7'>
+				</div>
+
+				<div id="div8" class="slot">
+					<img src="images/memoryGameCard.png" width="100" height="100" id='card8'>
+				</div>
+
+				<div id="div9" class="slot">
+					<img src="images/memoryGameCard.png" width="100" height="100" id='card9'>
+				</div>
+			</div>
+
+			<br>
+
+		</div>
+
+		<script src="http://code.jquery.com/jquery.js"></script>
+		<script src="script/sectionone.js"></script>
+		<script>
+			//Picks random cards from the section
+			var mcard1 = getCard(Math.floor((Math.random() * 10) + 1));
+			
+			var mcard2 = getCard(Math.floor((Math.random() * 10) + 1));
+			while(mcard1 == mcard2){
+				mcard2 = getCard(Math.floor((Math.random() * 10) + 1));
+			}
+			
+			var mcard3 = getCard(Math.floor((Math.random() * 10) + 1));
+			while(mcard3 == mcard2 || mcard3 == mcard1){
+				mcard3 = getCard(Math.floor((Math.random() * 10) + 1));
+			}
+			
+			var mcard4 = getCard(Math.floor((Math.random() * 10) + 1));
+			while(mcard4 == mcard2 || mcard4 == mcard1 || mcard4 == mcard3){
+				mcard4 = getCard(Math.floor((Math.random() * 10) + 1));
+			}
+
+			//These variables hold a true/false value to know if either of two cards is clicked yet
+			var firsthidden = true;
+			var secondhidden = true;
+
+			var selectionone = null;
+			var selectiontwo = null;
+
+			function cycle(){
+				//This assigns the data to the div
+				$("#div6").append(mcard1.word);
+				$("#div7").append(mcard2.word);
+				$("#div10").append(mcard3.word);
+				$("#div11").append(mcard4.word);
+
+				$("#div1").append("<img src=\"images/audioicon.png\" draggable=\"true\" width=\"80\" height=\"80\" onClick=\"playAudio(1)\"> " + "<audio id=\"audioPlay1\" src=\"" + mcard1.audio + "\"></audio>");
+
+				$("#div4").append("<img src=\"images/audioicon.png\" draggable=\"true\" ondragstart=\"drag(event)\" id=\"drag2\" width=\"80\" height=\"80\" onClick=\"playAudio(2)\"> " + "<audio id=\"audioPlay2\" src=\"" + mcard2.audio + "\"></audio>");
+
+				$("#div13").append("<img src=\"images/audioicon.png\" draggable=\"true\" width=\"80\" height=\"80\" onClick=\"playAudio(3)\"> " + "<audio id=\"audioPlay3\" src=\"" + mcard3.audio + "\"></audio>");
+
+				$("#div16").append("<img src=\"images/audioicon.png\" width=\"80\" height=\"80\" onClick=\"playAudio(4)\"> " + "<audio id=\"audioPlay4\" src=\"" + mcard4.audio + "\"></audio>");
+			}
+
+			function allowDrop(ev) {
+			    ev.preventDefault();
+			}
+
+			function drag(ev) {
+			    ev.dataTransfer.setData("text", ev.target.id);
+			}
+
+			function drop(ev) {
+			    ev.preventDefault();
+			    var data = ev.dataTransfer.getData("text");
+			    ev.target.appendChild(document.getElementById(data));
+			    checkAnswer(data, ev.target.id);
+			}
+
+			function playAudio(num){
+				document.getElementById("audioPlay"+num).load();
+				document.getElementById("audioPlay"+num).play();
+			}
+
+			function checkAnswer(data, tarid){
+				var answer = eval("mcard"+data.substring(4)).word;
+
+				if(tarid == "div6" && mcard1.word == answer) {
+					$("#div6").css("border", "1px solid green");
+				}
+				else if(tarid == "div7" && mcard2.word == answer){
+					$("#div7").css("border", "1px solid green");
+				}
+				else if(tarid == "div10" && mcard3.word == answer){
+					$("#div10").css("border", "1px solid green");
+				}
+				else if(tarid == "div11" && mcard4.word == answer){
+					$("#div11").css("border", "1px solid green");
+				}
+			}
+
+			$(".slot").click(function(){
+				//Tests to see if one card has been flipped, flips one
+				if(firsthidden){
+					$(this).html("<p>This is a test</p>");
+					//selectionone = this;
+					firsthidden = false;
+				}
+				//flips a second card if the second card hasn't been flipped. 
+				else if(secondhidden){
+					$(this).html("<p>This is a test</p>");
+					//selectionone = ;
+					secondhidden = false;
+				}
+				else {
+					//resetCards();
+					firsthidden = true;
+					secondhidden = true;
+				}
+			});
+
+			function resetCards(cardi, carde){
+				selectionone.html("<img src='images/memoryGameCard.png' width='100' height='100'>");
+				selectionone.html("<img src='images/memoryGameCard.png' width='100' height='100'>");
+			}
+		</script>
+
+	</body>
+
+</html>

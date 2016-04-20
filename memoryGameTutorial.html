@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Memory Game Tutorial</title>
+		<style>
+			body {
+				text-align: center;
+				background-color: #2ecc71;
+				background: url("images/8bitsky.png") no-repeat center center fixed;
+			}
+
+			img {
+				width: 50%;
+				height: 50%;
+			}
+
+			#wrapper {
+				padding: 2% 2% 2% 2%;
+				margin-left: 20%;
+				max-width: 60%;
+				background-color: #ecf0f1;
+			}
+
+			#box_input {
+				border: 5px solid #aaaaaa;
+				margin-right: 25%;
+				margin-left: 25%;
+			}
+
+			.choice {
+				border: 3px solid black;
+				margin-right: 35%;
+				margin-left: 35%;
+			}
+
+			button {
+				font-size: 2em;
+				margin-bottom: 5%;
+				padding: 30px;
+			}
+
+			.correct{
+				background-color: green;
+				border: solid;
+			}
+
+			.incorrect{
+				background-color: red;
+				border: solid;
+			}
+
+			.side
+			{	
+				float: left;
+			}
+
+			#menu{
+        		height: 100px;
+        		width: 100px;
+        		position: absolute;
+      		}
+		</style>
+	</head>
+
+	<body onload="onStart()">
+		<div id="left" class="side">
+      		<a href="main.php" class="buttons"><img id='menu' src="images/menu.png" alt="menu"></a>
+    	</div>
+
+
+		<div id = 'wrapper'>
+			<h1>Memory Game Tutorial</h1>
+
+			<hr>
+			<br>
+
+			<h2>Layout</h2>
+			<p>The top left button is a menu button. This returns you to the main page!<br>
+			<br> On the right hand side is the reset button. This will reset the game board, so that all tiles are blank! <br>
+				<br>Finally, in the center is the game board!
+			</p>
+
+			<br>
+
+			<img id='tutorial1' src="images/mgtut1.png">
+
+			<br>
+			<br>
+			<hr>
+
+			<h2>Selecting Cards</h2>
+			<p>To flip a card over, click on one of the "?" cards!</p>
+
+			<img id='tutorial2' src="images/mgtut2.png">
+
+			<br>
+			<br>
+
+			<hr>
+
+			<h2>Completing the Game</h2>
+			<p>To complete the game, you must match all the terms. The matches must be the same term!</p>
+
+			<img id='tutorial3' src="images/mgtut3.png">
+
+			<br>
+			<br>
+
+			<hr>
+
+
+			<h2>Summary</h2>
+			<p>Once you have finished the game, the board will reset. Have fun!</p>
+
+			<br>
+
+			<a href="memoryGame.php"><button>Play Now!</button></a>
+		</div>
+	</body>
+</html>

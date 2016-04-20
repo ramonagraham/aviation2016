@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Match Quiz</title>
+		<link  rel="stylesheet" href="css/quizStyle.css">
+	</head>
+	<body>
+	<div id="wrapper">
+		<div id="section">
+			<h1>Section 1 Quiz</h1>
+			
+		</div>
+
+		<div id="matching_area">
+			<div class="left">
+				<h1 id="questionNum"></h1>
+
+				<div class="image_border">
+					<img id="image" onClick="" draggable="false"  alt="image">
+					<audio id="audioPlay" autoplay></audio>
+				</div>		
+								
+			</div>
+			
+			<div class="right">
+				<h1>Choose an answer:</h1>
+				<div id="choices">
+					<h2 class= "select" id="answer1" draggable="false"></h2>
+					<h2 class= "select" id="answer2" draggable="false"></h2>
+					<h2 class= "select" id="answer3" draggable="false"></h2>
+					<h2 class= "select" id="answer4" draggable="false"></h2>
+				</div>
+				
+			</div>
+		</div>
+
+		<div id="bottom">
+			<input type="submit" id="submit" value="Submit Answer" onClick="checkShapeDrop(event);">
+		</div>
+		<script src="http://code.jquery.com/jquery.js"></script>
+		<script src="script/sectionone.js"></script>
+		<script src="script/quiz2Script.js"></script>
+</div>
+	</body>
+</html>

@@ -1,0 +1,102 @@
+ html {
+        background: url("../images/8bitsky2.png") no-repeat center center fixed;
+        -webkit-background-size: cover;
+         -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+
+      }
+
+      body{
+        width:100%;
+        height: auto;
+        min-height: 50%;
+        min-width: 50%;
+        margin: 0;
+        margin-top: -2%;
+        font-size: 140%;
+        background-color: #73e0ff;
+        position: relative;
+        text-align:center;
+      }
+
+      #listContainer{
+        margin-top: 2em;
+      }
+       
+      #expList{
+        margin:0em 5%;
+      }
+      ul{
+        font-size: 2em;
+      }
+      #expList ul, li {
+        list-style: none;
+        margin:0;
+        padding:0;
+        cursor: pointer;
+      }
+
+      #expList li {
+        line-height:100%;  
+      }
+       
+      /* Collapsed state for list element */
+      #expList .collapsed {
+          background-color: #1bbc9b;
+      }
+      /* Expanded state for list element
+      /* NOTE: This class must be located UNDER the collapsed one */
+      #expList .expanded {
+          background-color: white;
+      }
+
+      .boxDesign{
+        width: 100%;
+        float: left;
+
+      }
+
+      .left{
+        float:left;
+        width: 45%;
+        height: 25%;
+        text-align: center;
+        margin: 0% auto;
+        margin-bottom: 5%;
+        border: solid;
+        background-color: white;
+      }
+
+      .right{
+        float:right;
+        width: 45%;
+        height: 25%;
+        text-align: center;
+        margin: 0% auto;
+        margin-bottom: 5%;
+        border: solid;
+        background-color: white;
+      }
+
+      .inline{
+        float: left;
+        display: inline;
+        margin: 1%;
+
+        width: 30%;
+        height: 30%;
+        
+      }
+
+      .clickHide, h2{
+       font-family: verdana;
+       font-size: 1em;
+        
+      }
+
+      .smaller {
+        font-size: .5em;
+
+      }
